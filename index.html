@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+  <title>United States Silver Dollar Coinage</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#slider" ).slider({
+      value:1794,
+      min: 1794,
+      max: 2017,
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#year" ).val( ui.value );
+      }
+    });
+    $( "#year" ).val( $( "#slider" ).slider( "value" ) );
+  } );
+  </script>
+</head>
+<body>
+
+<p>
+  <label for="year" id="year_label">Year:</label>
+  <input type="text" id="year">
+</p>
+
+<div id="slidercontainer">
+  <div id="slider"></div>
+</div>
+
+
+</body>
+</html>
