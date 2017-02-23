@@ -1,14 +1,14 @@
 body {
-
+  text-align: center;
 }
 
 #slider {
-  width: 80%;
+  width: 100%;
 }
 
 #slidercontainer {
   padding-left: 30%;
-  padding-right: 25%;
+  padding-right: 30%;
   text-align: center;
 }
 
@@ -22,8 +22,18 @@ input#ammount {
   color:#000000;
   font-weight:bold;
   font-size: 20px;
+  width: 50px;
 }
 
 #year_label {
   font-size: 20px;
+}
+
+.info {
+  width = 1200px;
+  margin: auto;
+}
+
+td {
+  width: 400px;
 }
