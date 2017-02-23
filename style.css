@@ -37,3 +37,13 @@ input#ammount {
 td {
   width: 400px;
 }
+
+.info table {
+  width: 100%;
+}
+
+#flowing {
+  height: 500px;
+  width: 1000px;
+  margin-top: 30px;
+}
