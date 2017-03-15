@@ -1,4 +1,5 @@
 <!doctype html>
+
 <head>
   <title>United States Silver Dollar Coinage</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -7,93 +8,108 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-    $( "#slider" ).slider({
-      value:1794,
-      min: 1794,
-      max: 2017,
-      step: 1,
-      slide: function( event, ui ) {
-        $( "#year" ).val( ui.value );
+    var textData = {
+      1794: "foo",
+      1795: "bar",
+      1796: "baz"
+    }
+
+    var textDataMulti = [{
+        min: 1794,
+        max: 1800,
+        data: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem"
+      },
+      {
+        min: 1801,
+        max: 1900,
+        data: "accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
       }
+    ];
+
+    $(function() {
+      $("#slider").slider({
+        value: 1794,
+        min: 1794,
+        max: 2017,
+        step: 1,
+        slide: function(event, ui) {
+          var value = ui.value;
+
+          $("#year").val(ui.value);
+
+          if (value in textData) {
+            console.log("textData: " + textData[value]);
+          }
+
+          // Loop through every item in textDataMuli
+          for (var i = 0; i < textDataMulti.length; i++) {
+            var entry = textDataMulti[i];
+
+            // If value is in range of min and max, update data
+            if (value >= entry.min && value <= entry.max) {
+              console.log(entry.data);
+            }
+          }
+        }
+      });
+      $("#year").val($("#slider").slider("value"));
     });
-    $( "#year" ).val( $( "#slider" ).slider( "value" ) );
-  } );
   </script>
 </head>
+
 <body>
 
-<div id="header">
-  <h1>UNITED STATES SILVER COINAGE</h1>
-</div>
+  <div id="header">
+    <h1>UNITED STATES SILVER COINAGE</h1>
+  </div>
 
-<div id="slidercontainer">
-<p>
-  <label for="year" id="year_label">Year:</label>
-  <input type="text" id="year">
-</p>
+  <div id="slidercontainer">
+    <p>
+      <label for="year" id="year_label">Year:</label>
+      <input type="text" id="year">
+    </p>
 
-  <div id="slider"></div>
-</div>
+    <div id="slider"></div>
+  </div>
 
-<img id="flowing" src="flowinghair.png">
+  <img id="flowing" src="flowinghair.png">
 
-<div id="coins_title">
-  <h1>Flowing Hair Dollar</h1>
-</div>
+  <div id="coins_title">
+    <h1>Flowing Hair Dollar</h1>
+  </div>
 
-<div class="info">
-  <table>
-    <tr>
-      <td id="history">
-        <h2>History</h2>
-        <p>
-          Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis
-          eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula.
-          Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in
-          faucibus. Duis vehicula ultricies velit, eget consequat velit
-          imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero
-          diam sollicitudin lectus, eu ullamcorper diam purus in justo.
-          Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus
-          et commodo vitae, gravida interdum magna. Maecenas efficitur, augue
-          eget gravida posuere, diam nunc pellentesque tortor, id sodales
-          lectus urna sed libero. Praesent accumsan sem non congue lobortis.
-        </p>
-      </td>
-      <td id="characteristics">
-        <h2>Charactertistics</h2>
-        <p>
-          Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis
-          eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula.
-          Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in
-          faucibus. Duis vehicula ultricies velit, eget consequat velit
-          imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero
-          diam sollicitudin lectus, eu ullamcorper diam purus in justo.
-          Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus
-          et commodo vitae, gravida interdum magna. Maecenas efficitur, augue
-          eget gravida posuere, diam nunc pellentesque tortor, id sodales
-          lectus urna sed libero. Praesent accumsan sem non congue lobortis.
-        </p>
-      </td>
-      <td id="minting">
-        <h2>Minting</h2>
-        <p>
-          Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis
-          eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula.
-          Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in
-          faucibus. Duis vehicula ultricies velit, eget consequat velit
-          imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero
-          diam sollicitudin lectus, eu ullamcorper diam purus in justo.
-          Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus
-          et commodo vitae, gravida interdum magna. Maecenas efficitur, augue
-          eget gravida posuere, diam nunc pellentesque tortor, id sodales
-          lectus urna sed libero. Praesent accumsan sem non congue lobortis.
-        </p>
-      </td>
-    </tr>
-  </table>
-</div>
+  <div class="info">
+    <table>
+      <tr>
+        <td id="history">
+          <h2>History</h2>
+          <p>
+            Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula. Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vehicula ultricies velit,
+            eget consequat velit imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero diam sollicitudin lectus, eu ullamcorper diam purus in justo. Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus et commodo vitae,
+            gravida interdum magna. Maecenas efficitur, augue eget gravida posuere, diam nunc pellentesque tortor, id sodales lectus urna sed libero. Praesent accumsan sem non congue lobortis.
+          </p>
+        </td>
+        <td id="characteristics">
+          <h2>Charactertistics</h2>
+          <p>
+            Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula. Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vehicula ultricies velit,
+            eget consequat velit imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero diam sollicitudin lectus, eu ullamcorper diam purus in justo. Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus et commodo vitae,
+            gravida interdum magna. Maecenas efficitur, augue eget gravida posuere, diam nunc pellentesque tortor, id sodales lectus urna sed libero. Praesent accumsan sem non congue lobortis.
+          </p>
+        </td>
+        <td id="minting">
+          <h2>Minting</h2>
+          <p>
+            Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula. Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vehicula ultricies velit,
+            eget consequat velit imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero diam sollicitudin lectus, eu ullamcorper diam purus in justo. Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus et commodo vitae,
+            gravida interdum magna. Maecenas efficitur, augue eget gravida posuere, diam nunc pellentesque tortor, id sodales lectus urna sed libero. Praesent accumsan sem non congue lobortis.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
 
 
 </body>
+
 </html>
