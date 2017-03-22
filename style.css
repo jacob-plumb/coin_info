@@ -7,7 +7,7 @@ body {
   color: #ffffff;
 }
 
-div {
+.info {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
@@ -30,6 +30,7 @@ div {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 input#ammount {
@@ -62,7 +63,7 @@ td {
   width: 100%;
 }
 
-#flowing {
+#image {
   height: 250px;
   width: 500px;
   margin-top: 40px;

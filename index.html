@@ -16,13 +16,53 @@
 
     var textDataMulti = [{
         min: 1794,
-        max: 1800,
-        data: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem"
+        max: 1795,
+        title: "Flowing Hair Dollar",
+        image: "flowinghair.png"
       },
       {
-        min: 1801,
-        max: 1900,
-        data: "accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        min: 1796,
+        max: 1803,
+        title: "Draped Bust Dollar",
+        image: "drapedbust.png"
+      },
+      {
+        min: 1804,
+        max: 1804,
+        title: "1804 Dollar",
+        image: "1804.png"
+      },
+      {
+        min: 1805,
+        max: 1835,
+        title: "No Dollar Coinage",
+        image: "nocoin.png"
+      },
+      {
+        min: 1836,
+        max: 1839,
+        title: "Gobrecht Dollar",
+        image: "gobrecht.png"
+      },
+      {
+        min: 1840,
+        max: 1873,
+        title: "Seated Liberty Dollar"
+      },
+      {
+        min: 1874,
+        max: 1877,
+        title: "No Dollar Coinage"
+      },
+      {
+        min: 1878,
+        max: 1921,
+        title: "Morgan Dollar"
+      },
+      {
+        min: 1922,
+        max: 1935,
+        title: "Peace Dollar"
       }
     ];
 
@@ -30,7 +70,7 @@
       $("#slider").slider({
         value: 1794,
         min: 1794,
-        max: 2017,
+        max: 1935,
         step: 1,
         slide: function(event, ui) {
           var value = ui.value;
@@ -47,7 +87,8 @@
 
             // If value is in range of min and max, update data
             if (value >= entry.min && value <= entry.max) {
-              console.log(entry.data);
+              $('#coins_title h1').html(entry.title);
+              $('#image').attr('src', entry.image)
             }
           }
         }
@@ -59,26 +100,19 @@
 
 <body>
 
-  <div id="header">
+  <div class="info" id="header">
     <h1>UNITED STATES SILVER COINAGE</h1>
   </div>
 
-  <div id="slidercontainer">
-    <p>
-      <label for="year" id="year_label">Year:</label>
-      <input type="text" id="year">
-    </p>
-
-    <div id="slider"></div>
-  </div>
-
-  <img id="flowing" src="flowinghair.png">
-
-  <div id="coins_title">
-    <h1>Flowing Hair Dollar</h1>
-  </div>
-
   <div class="info">
+    <div id="slidercontainer">
+      <p>
+        <label for="year" id="year_label">Year:</label>
+        <input type="text" id="year">
+      </p>
+
+      <div id="slider"></div>
+    </div>
     <table>
       <tr>
         <td id="history">
@@ -89,16 +123,15 @@
             gravida interdum magna. Maecenas efficitur, augue eget gravida posuere, diam nunc pellentesque tortor, id sodales lectus urna sed libero. Praesent accumsan sem non congue lobortis.
           </p>
         </td>
-        <td id="characteristics">
-          <h2>Charactertistics</h2>
-          <p>
-            Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula. Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vehicula ultricies velit,
-            eget consequat velit imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero diam sollicitudin lectus, eu ullamcorper diam purus in justo. Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus et commodo vitae,
-            gravida interdum magna. Maecenas efficitur, augue eget gravida posuere, diam nunc pellentesque tortor, id sodales lectus urna sed libero. Praesent accumsan sem non congue lobortis.
-          </p>
+        <td id="center">
+          <img id="image" src="flowinghair.png">
+
+          <div id="coins_title">
+            <h1>Flowing Hair Dollar</h1>
+          </div>
         </td>
-        <td id="minting">
-          <h2>Minting</h2>
+        <td id="charactertistics">
+          <h2>Charactertistics</h2>
           <p>
             Nullam odio mauris, venenatis sit amet libero at, porttitor facilisis eros. Donec vitae mi pellentesque, imperdiet enim nec, dapibus ligula. Sed sed sem ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vehicula ultricies velit,
             eget consequat velit imperdiet at. Integer cursus, sapien eget ultricies lobortis, libero diam sollicitudin lectus, eu ullamcorper diam purus in justo. Nullam efficitur venenatis nisi ac viverra. Fusce nisi orci, dapibus et commodo vitae,
